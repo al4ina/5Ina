@@ -2,22 +2,22 @@
 class Fruit{
     public $name;
     public $color;
-
-    function set_name($name){
-        $this->name=$name;
+    public function __construct($name,$color){
+        $this->name = $name;
+        $this->color = $color;
     }
-    function get_name()  {
-        return $this->name;
-        
+    protected function intro(){
+        echo "The fruit is {$this->name} and the color is {$this->color}.";
+    }
+
+}
+class Strawberry extends Fruit{
+    public function message(){
+        echo "Jestem {$this->name}";
     }
 }
-$apple=new Fruit();
-$banana=new Fruit();
-$apple->set_name('Apple');
-$banana->set_name('Banana');
-
-echo $apple->get_name();
-echo '<br>';
-echo $banana->get_name();
+$strawberry=new Strawberry("Truskawka","czerwona");
+$strawberry->message();
+// $strawberry->intro();
 
 ?>
