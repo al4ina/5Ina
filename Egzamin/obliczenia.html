@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stacja Paliw</title>
+    <link rel="stylesheet" href="styl2.css">
+</head>
+<body>
+    <div class="baner">
+        <h1>Całodobowa stacja paliw</h1>
+    </div>
+    <div class="menu">
+        <a href="stacja.html"><img src="home.png" alt=""></a>
+        <a href="obliczenia.html"><img src="znak.png" alt=""></a>
+        <a href="kwerendy.txt">Pobierz dokumenty</a>
+    </div>
+    <div id="lewy">
+    <h2>Orientacyjny koszt paliwa</h2>
+    <form action="">
+    <label for="">Rodzaj paliwa (1-benzyna, 2-olej
+        napędowy)</label><br>
+    <input type="number" id="rodzaj"><br>
+
+    <label for="">Ile litrów</label><br>
+    <input type="number" id="ile"><br>
+    <input id="button" type="button" type="submit" value="Oblicz">
+</form>
+    </div>
+
+    <script>
+        const button=document.querySelector('#button')
+         wynik=0
+        function obliczenia(){
+            ile=document.querySelector("#ile")
+            il=ile.value
+            console.log(il)
+            rodzaj=document.querySelector("#rodzaj")
+            rodz=rodzaj.value
+            console.log(rodz)
+            if(rodz==1){
+               wynik=4*il
+               const p=document.createElement("pre")
+    
+    p.innerHTML=`koszt paliwa ${wynik}` 
+    button.parentElement.appendChild(p)
+            }else if(rodz==2){
+               wynik= 3.5*il
+               const p=document.createElement("pre")
+    
+    p.innerHTML=`koszt paliwa ${wynik}` 
+    button.parentElement.appendChild(p)
+            }else{
+               wynik= 0
+               const p=document.createElement("pre")
+    
+        p.innerHTML=`koszt paliwa ${wynik}` 
+        button.parentElement.appendChild(p)
+            }
+        }
+   button.onclick=obliczenia
+
+        
+     
+  
+    </script>
+    <div class="prawy">
+        <img class="samochod" src="samochod.png" alt="samochod">
+    </div>
+    <div class="stopka">
+        <p>Stronę opracował: Artur L</p>
+    </div>
+</body>
+</html>
