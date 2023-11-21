@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h1>PROSTE DZIAŁANIA</h1>
+        <form name="formularz" onsubmit="return false">
+            <label for="input"> Podaj pierwszą liczbę: </label>
+            <input type="number" name="pierwsza" id="pierwsza"> <br>
+            <label for="input">Podaj drugą liczbę</label>
+            <input type="number" name="druga" id="druga"> <br>
+            <button onclick="fun(1)"> Dodawanie</button>
+            <button onclick="fun(2)"> Odejmowanie</button>
+            <button onclick="fun(3)"> Mnożenie</button>
+            <button onclick="fun(4)"> Dzielenie</button> <br>
+            <output id="wynik" ></output>
+        </form>
+        <script>
+
+
+
+
+            function fun(operacja){
+                let liczba1 = parseInt(document.querySelector('#pierwsza').value);
+                let liczba2 = parseInt(document.querySelector('#druga').value);
+                if(isNaN(liczba1) || isNaN(liczba2)) {
+                    wynik = "Proszę uzupełnić obie liczby";
+                } else{
+                    if(operacja==1) wynik = liczba1 + liczba2;
+                    if(operacja==2) wynik = liczba1 - liczba2;
+                    if(operacja==3) wynik = liczba1 * liczba2;
+                    if(operacja==4){
+                        if(liczba2==0){
+                            wynik = "Nie dzielimy przez 0";
+                        }else{
+                            wynik = liczba1/liczba2;
+                        };
+                    };
+            }
+            document.querySelector("#wynik").innerHTML=wynik;
+        }
+        </script>
+       
+    </body>
+</html>
